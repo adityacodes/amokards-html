@@ -144,10 +144,17 @@
                                             </li>
                                         </ul> -->
                                     </li>
+                                    
+                                    <li>
+                                        <a href="contact.html">
+                                            <i class="ti-shopping-cart">
+                                                </i> Shop
+                                        </a>
+                                    </li>
                                     <li class="dropdown">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                            <i class=" ti-clipboard">
-                                                </i> Pages
+                                            <i class=" ti-list-ol">
+                                                </i> Categories
                                             <span class="caret">
                                                 </span>
                                         </a>
@@ -158,12 +165,6 @@
                                                     </a>
                                             </li>
                                         </ul>
-                                    </li>
-                                    <li>
-                                        <a href="categories.html">
-                                            <i class=" ti-list-ol">
-                                                </i> Categories
-                                        </a>
                                     </li>
                                     <li>
                                         <a href="contact.html">
@@ -188,7 +189,7 @@
                 <div class="category-list">
                     <div class="tab-box shadow card">
                         <ul class="nav nav-tabs add-tabs" id="ajaxTabs" role="tablist">
-                            <li class="active"><a href="#grid" data-url="#" role="tab" data-toggle="tab">Grid x3 <span class="ti-layout-grid2"></span></a>
+                            <li class="active"><a href="#grid" data-url="#" role="tab" data-toggle="tab">Categories <span class="ti-layout-grid2"></span></a>
                             </li>
                         </ul>
                         <div class="tab-filter">
@@ -372,62 +373,13 @@
                     </form>
                 </div>
                 <div class="widget card pad-all">
-                    <hr class="mBtm-50 mTop-30" data-symbol="With Amenities">
-                    <form>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="">Balcony
+                    <hr class="mBtm-50 mTop-30" data-symbol="With Categories">
+                    <form ng-controller="sidebarcats">
+                        <div class="checkbox" ng-repeat="cat in categories">
+                            <label >
+                                <input type="checkbox" value="<% cat.val %>"><% cat.name %>
                             </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="">Built-in Wardrobes
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="">Dishwasher
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="">Eco Friendly Features
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="">Pet Friendly
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="">Gym
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="">Smoking permitted
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="">Furnished
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="">Eco Friendly Features
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="">Pet Friendly
-                            </label>
-                        </div>
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" value="">Include surrounding suburbs
-                            </label>
+
                         </div>
                     </form>
                 </div>
@@ -910,6 +862,30 @@
                                 },
                                 {
                                     url:'/tags/find-agent',
+                                    name:'Find Agent'
+                                }
+                            ];
+        });
+        app.controller("sidebarcats", function($scope) {
+            $scope.categories = [
+                                {
+                                    val:'/tags/for-rent',
+                                    name:'For Rent',
+                                },
+                                {
+                                    val:'/tags/for-sale',
+                                    name:'For Sale'
+                                },
+                                {
+                                    val:'/tags/submit-offer',
+                                    name:'Submit Offer'
+                                },
+                                {
+                                    val:'/tags/auctions',
+                                    name:'Auctions'
+                                },
+                                {
+                                    val:'/tags/find-agent',
                                     name:'Find Agent'
                                 }
                             ];
